@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instructor</title>
+</head>
+<body>
+
+<a href="{% url 'entities:homepage' %}"><button>Club</button></a>
+<a href="{% url 'entities:logout' %}"><button>Log out</button></a>
+<a href="{% url 'entities:change_instructor' %}"><button>Edit instructors profile</button></a>
+<div align="center">
+    <img src="{{instructor.photo.url}}">
+    <p><b>Name: </b> {{instructor.first_name}} {{instructor.last_name}}</p>
+    <p><b>Phone number: </b>{{instructor.phone_number}}</p>
+    {% if instructor.bio %}
+    <p><b>Biography: </b>{{instructor.bio}}</p>
+    {% else %}
+    <p>There is no bio yet</p>
+    {% endif %}
+</div>
+<br/><br/>
+<div align="center">
+    <h2>Your schedule</h2>
+    {% if schedule %}
+    {% for service in schedule %}
+    <h3>Service:</h3>
+    <p><b>Serivice category: </b>{{service.typeOfservice}}</p>
+    <p><b>Group: </b>{{service.group.name}}</p>
+    <p><b>Hall: </b>{{service.hall.hall_name}}</p>
+    <p><b>Start time: </b>{{service.start_time}}</p>
+    <p><b>End time: </b>{{service.end_time}}</p>
+    <p><a href="{% url 'entities:service_clients' service.id %}"><button>Clients</button></a></p>
+    <br/>
+    {% endfor %}
+    {% else %}
+    <p>You have no services for today yet</p>
+    {% endif %}
+</div>
+</body>
+</html>
