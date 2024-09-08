@@ -25,6 +25,10 @@ from venv import logger
 import logging
 logging.basicConfig(level=logging.INFO, filename="py_log.log",filemode="w")
 
+#TODO
+def cart(request):
+    return ''
+
 # Create your views here.
 def home_page(request):
     
@@ -186,7 +190,7 @@ def signin_page(request):
         
 
         age = request.POST['date']
-        age = datetime.strptime(age, '%Y-%m-%d').date()
+        age = datetime.datetime.strptime(age, '%Y-%m-%d').date()
         today = date.today()
         age = today.year - age.year - ((today.month, today.day) < (age.month, age.day))
         phone_number = request.POST['phone_number']
@@ -198,7 +202,8 @@ def signin_page(request):
             form = RegisterForm(request.POST)
             error = "Password must match"
             return render(request, 'SinginPage.html', {'form': form, 'error': error})
-        if not re.fullmatch(r'^\+\d{3} \(\d{2}\) \d{3}-\d{2}-\d{2}$', phone_number):
+        # if not re.fullmatch(r'^\+\d{3} \(\d{2}\) \d{3}-\d{2}-\d{2}$', phone_number):
+        if False:
             form = RegisterForm(request.POST)
             error = "Phone number should match this pattern: +375 (ХХ) ХХХ-ХХ-ХХ"
             #logger2.warning("WAR: User phone_number does not match with pattern ")

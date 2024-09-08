@@ -13,7 +13,7 @@ class RegisterForm(forms.Form):
         label='Your Birthday',
         required=True
     )
-    phone_number = forms.CharField(min_length=15, max_length=30, label="Your phone number")
+    phone_number = forms.CharField(min_length=13, max_length=30, label="Your phone number")
     login = forms.CharField(min_length=1, max_length=30, label="Login")
     password1 = forms.CharField(label="Password")
     password2 = forms.CharField(min_length=3, max_length=30, label="Password", help_text="again password")

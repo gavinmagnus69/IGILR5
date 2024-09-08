@@ -36,8 +36,7 @@ urlpatterns = [
     re_path(r'^workout_chart/$', views.service_chart, name='service_chart'),
     re_path(r'^age_distrib/$', views.age_distrib, name='age_distrib'),
     re_path(r'^service_distrib/$', views.service_distrib, name='service_distrib'),
+    path('cart/', views.cart, name='cart'),
 
-
-    
     
 ]
