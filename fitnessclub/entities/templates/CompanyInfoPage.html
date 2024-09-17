@@ -1,9 +1,11 @@
+{% extends "extender.html" %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Our History</title>
-    
+   
 </head>
 <body>
 <header>
@@ -15,10 +17,14 @@
     <h2>By Years</h2>
     {% for el in info %}
     <div class="year-section">
+        <img src="{{el.picture.url}}" alt="Description of the image" width="300">
         <p><b>Year:</b> {{el.date|date:"Y"}}</p>
         <p><b>Logo:</b> {{el.logo}}</p>
         <p><b>Bio:</b> {{el.bio}}</p>
         <p><b>Contacts:</b> {{el.requisites}}</p>
+        <!-- {%for sponsor in el.sponsors%} -->
+            <img src="{{el.sponsors.picture.url}}" alt="Description of the image" width="300">
+        <!-- {%endfor%} -->
     </div>
     {% endfor %}
     {% else %}
@@ -27,3 +33,4 @@
 </div>
 </body>
 </html>
+{% endblock content %}

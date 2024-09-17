@@ -24,10 +24,10 @@ from venv import logger
 
 import logging
 logging.basicConfig(level=logging.INFO, filename="py_log.log",filemode="w")
+from django.db.models import Avg, Count, Sum
+from datetime import date, timedelta
+from django.db import models
 
-#TODO
-def cart(request):
-    return ''
 
 # Create your views here.
 def home_page(request):
@@ -48,6 +48,9 @@ def home_page(request):
         'ctz' : ctz,
     }
     return render(request, 'Home.html', context)
+
+def sandbox_page(request):
+    return render(request, 'sandbox.html')
 
 def our_instructors_page(request):
     instructors = Instructor.objects.all()
@@ -386,9 +389,6 @@ def service_clients_page(request, id):
     return render(request, "ServiceClientsPage.html", {'clients': clients})
 
 
-from django.db.models import Avg, Count, Sum
-from datetime import date, timedelta
-from django.db import models
 
 @login_required(login_url='admin/')
 def superuser_page(request):
@@ -545,4 +545,10 @@ def age_distrib(request):
 
 @login_required(login_url='admin/')
 def service_distrib(request):
-    return render(request, 'ServiceDistributionPage.html')  
+    return render(request, 'ServiceDistributionPage.html')
+
+
+
+@login_required(login_url='login/')
+def cart(request):
+    return render(request, 'Cart.html')

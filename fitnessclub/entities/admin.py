@@ -7,6 +7,9 @@ from .models import *
 class ClientAdmin(admin.ModelAdmin):
     list_display = ('first_name','last_name','id', 'create_date', 'update_date', 'local_create_date', 'local_update_date')
 
+@admin.register(Sponsor)
+class SponsorAdmin(admin.ModelAdmin):
+    list_display = ('name', 'picture')
 
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):

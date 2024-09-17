@@ -5,6 +5,7 @@ app_name = 'entities'
 
 urlpatterns = [
     path('', views.home_page, name='homepage'),
+    path('home/', views.home_page, name='homepage'),
     path('our_instructors/', views.our_instructors_page, name='our_instructors'),
     path('instructor<int:pk>/', views.InstructorDetailsView.as_view(), name='instructor_details'),
     re_path(r'^services/$', views.services_page, name='services'),
@@ -36,7 +37,9 @@ urlpatterns = [
     re_path(r'^workout_chart/$', views.service_chart, name='service_chart'),
     re_path(r'^age_distrib/$', views.age_distrib, name='age_distrib'),
     re_path(r'^service_distrib/$', views.service_distrib, name='service_distrib'),
+    path('cart', views.cart, name='cart'),
     path('cart/', views.cart, name='cart'),
+    path('sandbox', views.sandbox_page, name='sandbox')
 
     
 ]

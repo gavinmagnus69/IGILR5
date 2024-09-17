@@ -50,6 +50,7 @@ class Client(Base):
     )
 
     costs = models.FloatField(default=0, validators=[MinValueValidator(0)])
+    
     def clean(self):
         super().clean()
 
@@ -145,11 +146,9 @@ class Card(Base):
         return self.name
 
 
-class CompanyInfo(Base):
-    logo = models.CharField(max_length=20)
-    bio = models.TextField()
-    requisites = models.TextField()
-    date = models.DateField()
+
+
+
 
 
 class Article(Base):
@@ -186,3 +185,22 @@ class Coupon(Base):
     code = models.CharField(max_length=10)
     discount = models.PositiveSmallIntegerField(default=5, validators=[MaxValueValidator(100)])
     end_date = models.DateField()
+
+
+
+class Cart(Base):
+    name = models.CharField(max_length=30)
+
+class Sponsor(Base):
+    name = models.CharField(max_length=30)
+    picture = models.ImageField(upload_to="banners", default="")
+    
+
+
+class CompanyInfo(Base):
+    logo = models.CharField(max_length=20)
+    bio = models.TextField()
+    requisites = models.TextField()
+    date = models.DateField()
+    picture = models.ImageField(upload_to="banners", default='')
+    sponsors = models.ManyToManyField(Sponsor, help_text='select sponsors for this company')    

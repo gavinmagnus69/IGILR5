@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Fitness CLUB</title>
-    
+    <link rel="icon" href="/media/icon.png"> 
+
+   
 </head>
 <header>
     <pre>{{tc}}</pre>
@@ -22,19 +24,26 @@
     </script>
 </header>
 <header>
+    <nav>
     <a href="{% url 'entities:about' %}"><button>About us</button></a>
     <a href="{% url 'entities:user' %}"><button>My page</button></a>
     <a href="{% url 'entities:login' %}"><button>Log in</button></a>
     <a href="{% url 'entities:signin' %}"><button>Sign in</button></a>
+    </nav>
 </header>
 <body>
 <div align="center">
     <h1>Welcome to the club, buddy!</h1>
+    
 </div>
 <div align="center">
+    <nav>
     <a href="{% url 'entities:our_instructors' %}"><button>Our instructors</button></a>
     <a href="{% url 'entities:services' %}"><button>Our services</button></a>
     <a href="{% url 'entities:halls' %}"><button>Our halls</button></a>
+    <a href="{% url 'entities:sandbox' %}"><button>Test page</button></a>
+
+    </nav>
 </div>
 </body>
 </html>

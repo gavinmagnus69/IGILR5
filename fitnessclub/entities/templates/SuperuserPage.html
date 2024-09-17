@@ -1,9 +1,11 @@
+{% extends "extender.html" %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Club Stats</title>
-    
+
 </head>
 <body>
     <header>
@@ -57,8 +59,13 @@
         </ul>
     </div>
     <div class="footer-links">
+        <a href="{% url 'entities:delinst' %}"><button>Select</button></a>
+        <a href="{% url 'entities:createinst' %}"><button>Create</button></a>
+
+        
         <a href="{% url 'entities:age_distrib' %}"><button>Age Distribution Chart</button></a>
         <a href="{% url 'entities:service_distrib' %}"><button>Service Distribution Chart</button></a>
     </div>
 </body>
 </html>
+{% endblock content %}
