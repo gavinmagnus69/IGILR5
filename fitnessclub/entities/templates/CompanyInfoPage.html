@@ -15,18 +15,22 @@
     <h1>Company Bio</h1>
     {% if info %}
     <h2>By Years</h2>
-    {% for el in info %}
+   
     <div class="year-section">
         <img src="{{el.picture.url}}" alt="Description of the image" width="300">
-        <p><b>Year:</b> {{el.date|date:"Y"}}</p>
-        <p><b>Logo:</b> {{el.logo}}</p>
-        <p><b>Bio:</b> {{el.bio}}</p>
-        <p><b>Contacts:</b> {{el.requisites}}</p>
+        <p><b>Year:</b> {{info.date|date:"Y"}}</p>
+        <p><b>Logo:</b> {{info.logo}}</p>
+        <p><b>Bio:</b> "{{info.bio}}"</p>
+        <p><b>Contacts:</b> {{info.requisites}}</p>
+        {%for li in sponsors%}
+        <a href="{{li.name}}">
+            <img src="{{li.picture.url}}" alt="Description of the image" width="300">
+        </a>
+        {%endfor%}
         <!-- {%for sponsor in el.sponsors%} -->
-            <img src="{{el.sponsors.picture.url}}" alt="Description of the image" width="300">
+            <!-- <img src="{{el.sponsors.picture.url}}" alt="Description of the image" width="300"> -->
         <!-- {%endfor%} -->
     </div>
-    {% endfor %}
     {% else %}
     <h2>No History</h2>
     {% endif %}

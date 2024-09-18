@@ -444,8 +444,10 @@ def about_page(request):
 
 
 def company_info_page(request):
-    info = CompanyInfo.objects.order_by("date")
-    return render(request, "CompanyInfoPage.html", {'info': info})
+    info = CompanyInfo.objects.get(id=1)
+    sponsors = info.sponsors.all()    
+
+    return render(request, "CompanyInfoPage.html", {'info': info, 'sponsors' : sponsors})
 
 def news_page(request):
     info = Article.objects.order_by("-date")
